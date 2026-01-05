@@ -1,4 +1,4 @@
-from googletrans import Translator; import speech_recognition as sr; import pyttsx3;
+from deep_translator import GoogleTranslator; import speech_recognition as sr; import pyttsx3;
 
 def speak(text,language="en"):
     engine=pyttsx3.init()
@@ -30,8 +30,8 @@ def speech_to_text():
     return ""
 
 def translating_text(text,target_language="es"):
-    translator = Translator()
-    translation=translator.translate(text,dest=target_language)
+    translator = GoogleTranslator(source="en", target=target_language)
+    translation = translator.translate(text)
     print("translated text", translation.text)
     return translation.text
 
